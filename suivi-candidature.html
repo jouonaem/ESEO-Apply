@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi des candidatures</title>
+    <link rel="stylesheet" href="stylesuivi.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Candidatures</a>
+            <a href="#">Opportunités</a>
+            <a href="#">Mon espace</a>
+        </nav>
+        <h1>Suivi des candidatures</h1>
+    </header>
+
+    <main>
+        <section class="tabs">
+            <button class="tab active" onclick="switchTab('en-cours')">Candidatures en cours</button>
+            <button class="tab" onclick="switchTab('passées')">Candidatures passées</button>
+        </section>
+
+        <section id="candidatures-en-cours" class="tab-content">
+            <h2>Candidature envoyée</h2>
+            <div class="candidature">
+                <h3>Thales - Intégrateur DevOps</h3>
+                <p><a href="#" class="status">Candidature externe</a></p>
+                <p>Sauvegardée il y a 2 jours</p>
+            </div>
+
+            <div class="candidature">
+                <h3>Steve Gates - Développeur Web</h3>
+                <p><span class="status">Candidature reçue</span></p>
+                <p>Envoyée il y a 2 jours</p>
+            </div>
+
+            <div class="candidature">
+                <h3>Les Sherpas - Candidature Spontanée</h3>
+                <p><span class="status declined">Candidature déclinée</span></p>
+                <p>Envoyée il y a un mois</p>
+            </div>
+        </section>
+
+        <section id="entretiens" class="tab-content hidden">
+            <h2>Entretiens programmés</h2>
+            <p>Aucun entretien en cours</p>
+        </section>
+
+        <section id="propositions" class="tab-content hidden">
+            <h2>Propositions d'embauche</h2>
+            <p>Aucune proposition pour l'instant</p>
+        </section>
+    </main>
+
+    <script>
+        // Gestion des onglets
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+
+            document.querySelectorAll('.tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ESEO Apply</title>
+</head>
+<body>
+
+    <header>
+        <div class="user-profile">
+            <img src="https://cdn-icons-png.flaticon.com/512/8727/8727966.png" alt="Profile Picture" class="profile-pic">
+            <span class="username">S'inscrire</span>
+        </div>
+    </header>
+
+    <h1>Job Board</h1>
+    <nav>
+        <a href="#job-list">Liste des Offres</a>
+        <a href="#application-tracker">Suivi des Candidatures</a>
+    </nav>
+
+    <a href="recapitulatif.html" class="recap-button">Voir mon récapitulatif</a>
+
+    <h1>Jobs</h1>
+    <div class="container">
+        <!-- Carte d'offre d'emploi 1 -->
+        <div class="job-card" href="Offre1.html">
+            <img src="https://cpp-prod-seek-company-image-uploads.s3.ap-southeast-2.amazonaws.com/433352/logo/67a6ecf0-bcca-11ea-86d1-e52bae5cc086.png" alt="Job Image">
+            <div class="job-card-content">
+                <p class="company-name">THALES</p>
+                <p class="job-title">
+                    <span class="highlight">Data</span> <span class="highlight">Engineer</span> (F/H)
+                </p>
+                <p class="location">📍 Vélizy-Villacoublay</p>
+                <p class="job-meta">Alternance · il y a 16 heures</p>
+                <button class="toggle-application" data-job-id="1">Marquer comme postulée</button>
+            </div>
+        </div>
+
+        <!-- Carte d'offre d'emploi 2 -->
+        <div class="job-card">
+            <img src="https://cpp-prod-seek-company-image-uploads.s3.ap-southeast-2.amazonaws.com/433352/logo/67a6ecf0-bcca-11ea-86d1-e52bae5cc086.png" alt="Job Image">
+            <div class="job-card-content">
+                <p class="company-name">THALES</p>
+                <p class="job-title">
+                    Ingénieur <span class="highlight">data</span> Spark (F/H)
+                </p>
+                <p class="location">📍 Vélizy-Villacoublay</p>
+                <p class="job-meta">Stage · il y a 16 heures</p>
+                <button class="toggle-application" data-job-id="1">Marquer comme postulée</button>
+            </div>
+        </div>
+
+        <!-- Carte d'offre d'emploi 3 -->
+        <div class="job-card">
+            <img src="https://cpp-prod-seek-company-image-uploads.s3.ap-southeast-2.amazonaws.com/433352/logo/67a6ecf0-bcca-11ea-86d1-e52bae5cc086.png" alt="Job Image">
+            <div class="job-card-content">
+                <p class="company-name">THALES</p>
+                <p class="job-title">
+                    Ingénieur <span class="highlight">Data</span> <span class="highlight">Engineer</span> (F/H)
+                </p>
+                <p class="location">📍 Vélizy-Villacoublay</p>
+                <p class="job-meta">Stage · il y a 16 heures</p>
+                <button class="toggle-application" data-job-id="1">Marquer comme postulée</button>
+            </div>
+        </div>
+    </div>
+
+     <!-- Section Application Tracker -->
+     <section id="application-tracker">
+        <ul id="application-history">
+            <!-- Historique des candidatures sera rempli par JavaScript -->
+        </ul>
+    </section>
+
+    <footer>
+        <i class="bi bi-instagram"></i>       
+        <p align="center">&copy; 2024 Mini Job Board</p>
+    </footer>
+
+    <script>
+        // Envoyer les données au back-end Java
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Empêche le rechargement de la page
+
+            const formData = {
+                nom: document.getElementById('nom').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
+
+            fetch('http://localhost:8080/api/users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => alert('Compte créé avec succès !'))
+            .catch(error => alert('Erreur lors de la création du compte.'));
+        });
+    </script>
+
+    <script>
+        // Gestionnaire de candidatures
+        const applications = {}; // Objet pour suivre l'état des candidatures
+
+        // Gestion du clic sur le bouton "postulée"
+        document.querySelectorAll('.toggle-application').forEach(button => {
+            button.addEventListener('click', () => {
+                const jobId = button.dataset.jobId;
+                const jobCard = button.closest('.job-card');
+                const jobTitle = jobCard.querySelector('h3').innerText;
+
+                // Basculer entre "postulée" et "non postulée"
+                if (!applications[jobId]) {
+                    applications[jobId] = { jobTitle, status: 'postulée', date: new Date().toLocaleString() };
+                    button.textContent = 'Marquer comme non postulée';
+                } else {
+                    delete applications[jobId];
+                    button.textContent = 'Marquer comme postulée';
+                }
+
+                updateApplicationHistory();
+            });
+        });
+
+        // Mettre à jour l'historique des candidatures
+        function updateApplicationHistory() {
+            const historyList = document.getElementById('application-history');
+            historyList.innerHTML = '';
+
+            Object.values(applications).forEach(application => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${application.jobTitle} - ${application.status} le ${application.date}`;
+                historyList.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>
