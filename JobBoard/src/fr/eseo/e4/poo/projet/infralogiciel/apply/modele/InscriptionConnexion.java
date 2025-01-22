@@ -5,7 +5,7 @@ public interface InscriptionConnexion {
   public String getPrenom();
   public String getEmail();
   public String getPhoneNumber();
-	public String getBirthDate();
-	public String getMotDePasse();
-	public String getConfMotDePasse();
+  public String getBirthDate();
+  public String getMotDePasse();
+  public String getConfMotDePasse();
 }
