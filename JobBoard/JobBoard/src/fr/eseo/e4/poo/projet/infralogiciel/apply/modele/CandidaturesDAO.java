@@ -1,8 +1,8 @@
 package fr.eseo.e4.poo.projet.infralogiciel.apply.model.dao;
 
-import fr.eseo.e4.poo.projet.infralogiciel.apply.model.Candidatures;
-import fr.eseo.e4.poo.projet.infralogiciel.apply.model.StatutCandidature;
-import com.eseo.backend.mvc.DataBaseConnection;
+import fr.eseo.e4.poo.projet.infralogiciel.apply.modele.Candidatures;
+import fr.eseo.e4.poo.projet.infralogiciel.apply.modele.StatutCandidature;
+import  fr.eseo.e4.poo.projet.infralogiciel.apply.modele.sql.DataBaseConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
