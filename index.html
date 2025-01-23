@@ -88,6 +88,25 @@
     </footer>
 
     <script>
+        async function openJavaWindow() {
+            try {
+                const response = await fetch('http://localhost:8080/open-window', {
+                    method: 'POST'
+                });
+
+                if (response.ok) {
+                    alert("Fenêtre Java ouverte !");
+                } else {
+                    alert("Erreur lors de l'ouverture de la fenêtre Java.");
+                }
+            } catch (error) {
+                console.error("Erreur :", error);
+                alert("Impossible de contacter le serveur.");
+            }
+        }
+    </script>
+
+    <script>
         // Envoyer les données au back-end Java
         document.getElementById('signupForm').addEventListener('submit', function(e) {
             e.preventDefault(); // Empêche le rechargement de la page
