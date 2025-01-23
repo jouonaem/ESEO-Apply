@@ -98,6 +98,7 @@ public class SignInDialog extends JPanel implements InscriptionConnexion{
 	protected void openLogonDialog() {
 		// TODO Auto-generated method stub
 		UserData userData = new UserData();
+		userData.setUniqueId(getUniqueId());
 		userData.setUsername(getUserId());
 		userData.setPassword(getConfMotDePasse());
 		
@@ -179,8 +180,29 @@ public class SignInDialog extends JPanel implements InscriptionConnexion{
 	public String getUserId() {
 		return userId();
 	}
+
+	public String generateId() {
+		String name1 = getNom().toLowerCase();
+		String surname1 = getPrenom().toLowerCase();
+		
+		//Préfixe de l'identifiant avec les 3 prmières lettres du nom et première du prénom
+		String prefix = (name1.substring(0, 3) + surname1.substring(0, 1)).toUpperCase();
+		
+		//Ajout de 4 lettres d'un UUID pour l'unicité
+		String unique = UUID.randomUUID().toString().substring(0, 4);
+		
+		//Combinaison des 2 éléments
+		String shortID = prefix + "-" + unique;
+		
+		return shortID;
+	}
+	
+	public String getUniqueId() {
+		return generateId();
+	}
 	
 	public void saveUserData() {
+		userData.setUniqueId(getUniqueId());
 		userData.setUsername(getUserId());
 		userData.setPassword(getConfMotDePasse());
 	}
