@@ -12,8 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import fr.eseo.e4.poo.projet.infralogiciel.apply.modele.InscriptionConnexion;
-import fr.eseo.e4.poo.projet.infralogiciel.apply.vue.LogonDialog;
-import fr.eseo.e4.poo.projet.infralogiciel.apply.vue.SignInAction;
+import java.util.UUID;
 
 
 
