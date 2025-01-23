@@ -8,8 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-/*import fr.eseo.e4.poo.projet.infralogiciel.apply.vue.LogonAction;
-import fr.projet.compet.vue.UserData;*/
+
 
 public class LogonDialog extends JPanel{
 	/**
@@ -21,14 +20,18 @@ public class LogonDialog extends JPanel{
 	private JPasswordField txtMotDePasse;
 	private JLabel lblNomUtilisateur;
 	private JLabel lblMotDePasse;
+	private JLabel lblUniqueId;
+	private JLabel txtUniqueId;
 	private static UserData userData;
 	
 	public LogonDialog(UserData userData) {
 		//Configuration du gestionnaire de répartition
-		setLayout(new GridLayout(3,2));
+		setLayout(new GridLayout(4,2));
 		this.userData = userData;
 		
 		//Création des composants
+		lblUniqueId = new JLabel("Identifiant Unique: ");
+		txtUniqueId = new JLabel(userData.getUniqueId());
 		lblNomUtilisateur = new JLabel("Nom d'Utilisateur:");
 		txtNomUtilisateur = new JTextField();
 		lblMotDePasse = new JLabel("Mot de passe:");
@@ -36,6 +39,8 @@ public class LogonDialog extends JPanel{
 		btnLogon = new JButton("Connexion");
 		
 		//ajout de composants à l'interface graphique
+		this.add(lblUniqueId);
+		this.add(txtUniqueId);
 		this.add(lblNomUtilisateur);
 		this.add(txtNomUtilisateur);
 		this.add(lblMotDePasse);
