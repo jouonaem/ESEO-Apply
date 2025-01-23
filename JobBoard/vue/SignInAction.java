@@ -10,8 +10,6 @@ import java.util.regex.Pattern;
 import javax.swing.AbstractAction;
 import javax.swing.JOptionPane;
 
-/*import fr.projet.compet.vue.EmailSender;
-import fr.projet.compet.vue.SignInDialog;*/
 
 public class SignInAction extends AbstractAction{
 	
@@ -33,6 +31,7 @@ public class SignInAction extends AbstractAction{
 				String prenomProfil = signInDialog.getPrenom();
 				String mdPprofil = signInDialog.getMotDePasse();
 				String conf = signInDialog.getConfMotDePasse();
+				String uniqueId = signInDialog.getUniqueId();
 				String userId = signInDialog.userId();
 				String adresseMail = signInDialog.getEmail();
 				
@@ -46,7 +45,7 @@ public class SignInAction extends AbstractAction{
 			       .append("\n\n")
 			       .append("Nom d’utilisateur : "+userId)
 			       .append("\n")
-			       .append("Mot de passe : "+conf)
+			       .append("Identifiant unique : "+uniqueId)
 			       .append("\n\n")
 			       .append("Ce mail contient vos identifiants de connexion et est strictement personnel. Pour prévenir toute tentative d’usurpation d’identité, veuillez enregistrer vos données dans un répertoire sécurisé et supprimer ce mail. Vos données sont protégées et vous serez notifié pour chaque mise à jour de l’application.")
 			       .append("Vous pouvez dès maintenant vous connecter !")
