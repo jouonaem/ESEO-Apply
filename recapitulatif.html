@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récapitulatif des recherches</title>
+    <link rel="stylesheet" href="css/stylerecap.css">
+</head>
+<body>
+    <header>
+        <h1>Hello Utilisateur</h1>
+        <p>Voici le récapitulatif de vos recherches</p>
+    </header>
+
+    <section id="recap">
+        <div class="recap-item">
+            <span class="icon">🚀</span>
+            <div>
+                <h2>3</h2>
+                <p>Candidatures en cours</p>
+            </div>
+        </div>
+        <div class="recap-item">
+            <span class="icon">🔖</span>
+            <div>
+                <h2>-</h2>
+                <p>Jobs sauvegardés</p>
+            </div>
+        </div>
+        <a href="suivi-candidature.html" class="back-link">Voir tout →</a>
+    </section>
+
+    <script>
+        // Exemple de données dynamiques (remplacer par une base de données)
+        const recapData = {
+            candidaturesEnCours: 3,
+            jobsSauvegardes: 0
+        };
+    
+        document.querySelector('#recap .recap-item:nth-child(1) h2').textContent = recapData.candidaturesEnCours;
+        document.querySelector('#recap .recap-item:nth-child(2) h2').textContent = recapData.jobsSauvegardes;
+    </script>
+
+</body>
+</html>
