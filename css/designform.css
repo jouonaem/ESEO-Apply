@@ -1,0 +1,121 @@
+body {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+fieldset {
+	margin: 0 auto;
+	font-weight: bold;
+	border: 1px outset #777;
+	font-family: Arial, Helvetica, sans-serif;
+	background-image: -webkit-linear-gradient(bottom, rgb(252, 252, 252) 10%,
+			rgb(205, 231, 252) 20%,
+			rgb(182, 195, 253) 30%,
+			rgb(157, 175, 254) 40%,
+			rgb(124, 147, 254) 50%,
+			rgb(097, 126, 255) 60%,
+			rgb(066, 100, 254) 70%,
+			rgb(044, 082, 253) 80%,
+			rgb(012, 056, 255) 90%);
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+}
+
+label {
+	float: left;
+	width: 150px;
+	margin: 0px 0px 0px 20px;
+	color: white;
+	text-shadow: 1px 1px 1px #777;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+	margin: 5px 0;
+}
+
+.button {
+	width: 70px;
+	font-style: castellar;
+	margin: 0px 0px 0px 10px;
+}
+
+.button:hover {
+	color: rgb(110, 117, 116);
+	/*text-shadow:1px 1px 1px #fff;*/
+}
+
+input[type=text] {
+	background-color: whitesmoke;
+	color: black;
+	border: 2px solid gray;
+	border-radius: 6px;
+	transition: ease;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	text-align: justify;
+	width: 100%;
+}
+
+input[type=text]:focus {
+	border: 3px solid #555;
+}
+
+input[type=password] {
+	background-color: whitesmoke;
+	color: black;
+	border: 2px solid gray;
+	border-radius: 6px;
+	transition: ease;
+	width: 100%;
+}
+
+input[type=password]:focus {
+	border: 3px solid #555;
+}
+
+select {
+	padding: 10px 12px;
+	border: none;
+	border-radius: 8px;
+	background-color: #4341445b;
+	width: 100%;
+}
+
+input[type=submit],
+input[type=button] {
+	background-color: #464848;
+	border: none;
+	border-radius: 6px;
+	color: white;
+	padding: 10px 8px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+}
+
+.titreBlock {
+	text-align: center;
+}
+
+.container {
+	display: flex;
+	width: 60%;
+	margin: 0 auto;
+	
+}
+
+.block {
+	margin: 0 10px;
+	width: 50%;
+}

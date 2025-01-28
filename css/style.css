@@ -20,8 +20,8 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #f8f9fa; /* Couleur de fond (optionnel) */
+    padding: 15px 20px;
+    background-color: #f8f8fa; /* Couleur de fond (optionnel) */
     border-bottom: 1px solid #ddd; /* Ligne en bas du header */
 }
 
@@ -173,4 +173,44 @@ h1 {
     padding: 10px;
     background-color: #eef;
     border-radius: 3px;
+}
+
+/* Floutage des offres non sélectionnées */
+.container.blurred .job-card {
+    filter: blur(5px);
+    pointer-events: none; /*inherit?*/
+}
+
+.container .job-card.active {
+    filter: none;
+    pointer-events: auto;
+}
+
+/* Barre de recherche */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    width: 300px;
+}
+
+.search-container button {
+    padding: 10px 15px;
+    background-color: #4c74af;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #4575a0;
 }

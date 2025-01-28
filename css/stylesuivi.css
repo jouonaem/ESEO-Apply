@@ -5,6 +5,13 @@ body {
     background-color: #f9f9f9;
 }
 
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
 header {
     background-color: #fff;
     padding: 20px;
