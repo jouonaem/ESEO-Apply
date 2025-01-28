@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="php/ajouter_offre.php">
+    <title>Ajouter une Offre</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .back-link {
+         display: block;
+         margin-bottom: 20px;
+         color: #333;
+         text-decoration: none;
+         font-size: 14px;
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<a href="Recruteur.html" class="back-link">← Retour</a>
+
+<body>
+
+<h2 align="center">Ajouter une offre d'emploi</h2>
+
+<form method="POST">
+    <label for="titre">Titre de l'offre :</label>
+    <input type="text" id="titre" name="titre" required>
+
+    <label for="description">Description :</label>
+    <textarea id="description" name="description" rows="4" required></textarea>
+
+    <label for="entreprise">Entreprise :</label>
+    <input type="text" id="entreprise" name="entreprise" required>
+
+    <label for="lieu">Lieu :</label>
+    <input type="text" id="lieu" name="lieu" required>
+
+    <button type="submit">Publier l'offre</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/designform.css">
+    <title>Enregistrement Utilisateur</title>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Retour</a>
+
+    <div class="container">
+		<div class="login-section block">
+			<fieldset>
+				
+				<p>
+				<h2 class="titreBlock">Connexion</h2>
+				</p>
+				<form>
+					<p><label for="email">Email:</label><br><input type="text" id="email" name="email"></p>
+					<br>
+					<p><label for="password">Mot de passe:</label><br><input type="text" id="password" name="password">
+					</p>
+					<br>
+					<input type="submit" value="Connexion" class="button">
+				</form>
+				</td>
+			</fieldset>
+		</div>
+		<div class="enregistrement block">
+			<fieldset>
+				<p>
+				<h2 class="titreBlock">Inscription</h2>
+				</p>
+				<form>
+					<p><label for="nom">Nom:</label> <br><input type="text" id="nom" name="nom"></p>
+					<br>
+					<p><label for="prenom">Prenom:</label><br><input type="text" id="prenom" name="prenom"></p>
+					<br>
+					<p><label for="email">Email:</label><br><input type="text" id="email" name="email"><br></p>
+					<br>
+                    <p><label for="type_utilisateur">Type Utilisateur:</label></p>
+					<select>
+						<option value="option1" selected>Etudiant</option>
+						<option value="option2">Recruteur</option>
+					</select>
+                    <br>
+					<p><label for="password">Mot de passe:</label><br><input type="password" id="password"
+							name="password"><br></p>
+					<br>
+					<p><label for="cpassword">Confirmation Mdp:</label><br><input type="text" id="cpassword"
+							name="cpassword"><br></p>
+					<br>
+					<input type="button" value="Inscription" class="button">
+				</form>
+			</fieldset>
+		</div>
+	</div>
+</body>
+</html>
