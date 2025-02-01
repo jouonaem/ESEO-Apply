@@ -35,7 +35,7 @@ public class UtilisateursDAO {
                         rs.getString("Mot_de_passe"),
                         type
                     );
-                } else if (type == Type_utilisateur.Admin) {  // Correction ici : RECRUTEUR au lieu d'Admin
+                } else if (type == Type_utilisateur.ADMIN) {  // Correction ici : RECRUTEUR au lieu d'Admin
                     utilisateur = new Recruteurs(
                         rs.getInt("id_utilisateur"),
                         rs.getString("nom"),  // Ajout du nom ici
@@ -67,7 +67,7 @@ public class UtilisateursDAO {
             stmt.setString(3, utilisateur.getPrenom());
             stmt.setString(4, utilisateur.getEmail());
             stmt.setString(5, utilisateur.getMot_de_passe());
-            stmt.setString(6, utilisateur.getType_utilisateur().name());  // Utiliser name() pour convertir l'énumération en String
+            stmt.setString(6, utilisateur.getType_utilisateur().name());  // Utiliser name() pour convertir l'énumération en String   //la méthode toString() ne marche pas?
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
