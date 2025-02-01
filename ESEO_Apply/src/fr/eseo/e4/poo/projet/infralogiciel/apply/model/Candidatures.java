@@ -10,7 +10,7 @@ public class Candidatures {
     private StatutCandidature statut;
 
     public Candidatures(int id_candidature, int id_utilisateur, int id_offre, Date date_candidature, StatutCandidature statut) {
-        if (date_candidature == null) {
+        if (date_candidature == null) {      //Pourquoi la création d'un objet date? On aurait pu effectuer un test sur l'id de la candidature plutôt non?
             throw new IllegalArgumentException("La date de candidature ne peut pas être null.");
         }
         this.id_candidature = id_candidature;
