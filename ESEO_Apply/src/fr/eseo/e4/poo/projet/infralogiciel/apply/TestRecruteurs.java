@@ -14,7 +14,7 @@ public class TestRecruteurs {
         // 1. Ajouter un recruteur
         System.out.println("Ajout d'un recruteur...");
         // ID 0 est généralement utilisé pour une auto-incrémentation dans la base de données
-        Recruteurs recruteur1 = new Recruteurs(0, "Dupont", "Jean", "jean.dupont@email.com", "password123", Type_utilisateur.Admin);
+        Recruteurs recruteur1 = new Recruteurs(0, "Dupont", "Jean", "jean.dupont@email.com", "password123", Type_utilisateur.ADMIN);
         recruteursDAO.ajouterRecruteur(recruteur1);
         System.out.println("Recruteur ajouté avec succès !");
 

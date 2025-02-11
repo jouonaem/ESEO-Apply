@@ -46,7 +46,7 @@ public class RecruteursVue {
         String motDePasse = scanner.nextLine();
         System.out.print("Numero de Telephone: ");
 
-        Recruteurs recruteur = new Recruteurs(0, nom,prenom, email, motDePasse, Type_utilisateur.Admin);
+        Recruteurs recruteur = new Recruteurs(0, nom,prenom, email, motDePasse, Type_utilisateur.ADMIN);
         recruteursDAO.ajouterRecruteur(recruteur);
         System.out.println("Recruteur ajouté avec succès !");
     }

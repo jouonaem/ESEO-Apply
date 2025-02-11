@@ -18,7 +18,7 @@ public class UtilisateurVue {
             
             // Affichez ici des informations supplémentaires spécifiques aux étudiants si nécessaire
         } 
-        else if (utilisateur.getType_utilisateur() == Type_utilisateur.Admin) {
+        else if (utilisateur.getType_utilisateur() == Type_utilisateur.ADMIN) {
             System.out.println("Type: Recruteur");
             // Affichez ici des informations supplémentaires spécifiques aux recruteurs si nécessaire
         } else {
