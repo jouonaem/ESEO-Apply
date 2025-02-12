@@ -37,7 +37,7 @@ public class CandidatureVue {
     
     // Afficher une candidature spécifique
     
-    public void afficherCandidatureSpecifique (Candidatures candidature) {
+    public void afficherCandidatureSpecifique(Candidatures candidature) {
     	if(candidature == null) {
     		System.out.println("cette candidature n'éxiste pas");
     	}
@@ -51,5 +51,10 @@ public class CandidatureVue {
             System.out.println("---------------------------");
     	}
     }
+
+	public void afficherMessage(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

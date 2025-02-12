@@ -35,4 +35,9 @@ public class UtilisateurVue {
             afficherUtilisateur(utilisateur); // Appel de la méthode afficherUtilisateur pour chaque utilisateur
         }
     }
+
+	public void afficherMessage(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 }

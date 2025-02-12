@@ -54,7 +54,7 @@ public class EtudiantsDAO {
     }
 
     // Récupérer tous les étudiants
-    public List<Etudiants> getAllEtudiants() {
+    public static List<Etudiants> getAllEtudiants() {   //Changed to Static
         List<Etudiants> etudiants = new ArrayList<>();
         String query = "SELECT * FROM Etudiants";
 

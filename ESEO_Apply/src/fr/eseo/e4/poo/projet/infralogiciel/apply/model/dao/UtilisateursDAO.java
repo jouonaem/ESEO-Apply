@@ -101,4 +101,19 @@ public class UtilisateursDAO {
             e.printStackTrace();
         }
     }
+    
+    //Vérifier l'existance de l'utilisateur pour le connecter
+    public static boolean loginUser(String email, String password) {
+        String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+        try (Connection conn = DataBaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, email);
+            stmt.setString(2, password);  //  Vérifie le hash en production !
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();  // true si l'utilisateur existe, false sinon
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

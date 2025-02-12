@@ -51,6 +51,11 @@ public class RecruteursVue {
         System.out.println("Recruteur ajouté avec succès !");
     }
 
+	public void afficherMessage(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
     /* Supprimer un recruteur
     public void supprimerRecruteur() {
         System.out.print("Entrez l'ID du recruteur à supprimer : ");
