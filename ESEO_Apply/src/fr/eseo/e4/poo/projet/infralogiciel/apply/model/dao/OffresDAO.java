@@ -24,6 +24,7 @@ public class OffresDAO {
                     rs.getString("titre"),
                     rs.getString("description"),
                     rs.getString("entreprise"),
+                    rs.getString("lieu"),
                     rs.getDate("date_publication")
                 );
                 offres.add(offre);
@@ -38,12 +39,13 @@ public class OffresDAO {
     public static void ajouterOffre(Offres offre) {
         try (Connection connection = DataBaseConnection.getConnection()) {
         	 System.out.println("Entreprise avant insertion : " + offre.getEntreprise());
-            String query = "INSERT INTO Offres (titre, description, entreprise, date_publication) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO Offres (titre, description, entreprise, lieu, date_publication) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, offre.getTitre());
             stmt.setString(2, offre.getDescription());
             stmt.setString(3, offre.getEntreprise());
-            stmt.setDate(4, new Date(offre.getDate_publication().getTime()));
+            stmt.setString(4, offre.getLieu());
+            stmt.setDate(5, new Date(offre.getDate_publication().getTime()));
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -65,13 +67,14 @@ public class OffresDAO {
     // Mettre à jour une offre
     public void mettreAJourOffre(Offres offre) {
         try (Connection connection = DataBaseConnection.getConnection()) {
-            String query = "UPDATE Offres SET titre = ?, description = ?, entreprise = ?, date_publication = ? WHERE id_offre = ?";
+            String query = "UPDATE Offres SET titre = ?, description = ?, entreprise = ?, lieu = ?, date_publication = ? WHERE id_offre = ?";
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, offre.getTitre());
             stmt.setString(2, offre.getDescription());
             stmt.setString(3, offre.getEntreprise());
-            stmt.setDate(4, new Date(offre.getDate_publication().getTime()));
-            stmt.setInt(5, offre.getId_offre());
+            stmt.setString(4, offre.getLieu());
+            stmt.setDate(5, new Date(offre.getDate_publication().getTime()));
+            stmt.setInt(6, offre.getId_offre());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -92,6 +95,7 @@ public class OffresDAO {
                     rs.getString("titre"),
                     rs.getString("description"),
                     rs.getString("entreprise"),
+                    rs.getString("lieu"),
                     rs.getDate("date_publication")
                 );
             }

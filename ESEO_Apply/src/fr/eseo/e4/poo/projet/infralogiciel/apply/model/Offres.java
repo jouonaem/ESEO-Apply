@@ -8,13 +8,15 @@ public class Offres {
 	private String titre;
 	private String description;
 	private String entreprise;
+	private String lieu;
 	private Date date_publication;
 
-	public Offres(int id_offre, String titre, String description, String entreprise, Date date_publication) {
+	public Offres(int id_offre, String titre, String description, String entreprise, String lieu, Date date_publication) {
 		this.setId_offre(id_offre);
 		this.setTitre(titre);
 		this.setDescription(description);
 		this.setEntreprise(entreprise);
+		this.setLieu(lieu);
 		this.setDate_publication(date_publication);
 
 	}
@@ -57,6 +59,14 @@ public class Offres {
 
 	public void setDate_publication(Date date_publication) {
 		this.date_publication = date_publication;
+	}
+
+	public String getLieu() {
+		return lieu;
+	}
+
+	public void setLieu(String lieu) {
+		this.lieu = lieu;
 	}
 
 }
