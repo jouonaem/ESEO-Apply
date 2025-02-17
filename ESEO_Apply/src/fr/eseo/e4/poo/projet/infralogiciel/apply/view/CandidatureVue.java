@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class CandidatureVue {
 	
 	private CandidaturesDAO candidaturesDAO = new CandidaturesDAO();
-	
-	public void CandidaturesDAO(CandidaturesDAO candidaturesDAO) {
+
+	public CandidatureVue(CandidaturesDAO candidaturesDAO) {
         this.candidaturesDAO = candidaturesDAO;
     }
 	
@@ -52,9 +52,9 @@ public class CandidatureVue {
     	}
     }
 
-	public void afficherMessage(String string) {
+	public void afficherMessage(String message) {
 		// TODO Auto-generated method stub
-		
+		System.out.println(message);
 	}
 
 }

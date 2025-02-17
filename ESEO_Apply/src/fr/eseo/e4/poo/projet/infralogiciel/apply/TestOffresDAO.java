@@ -12,7 +12,7 @@ public class TestOffresDAO {
 				OffresDAO offreDAO = new OffresDAO();
 				// Ajouter une nouvelle offre
 				System.out.println("\nAjout d'une nouvelle offre...");
-				Offres nouvelleOffre = new Offres(0, "Alternance en programmation", "java, python ,c", "choco enterprise", "Vélizy", new Date());
+				Offres nouvelleOffre = new Offres(0, "Alternance en programmation", "java, python ,c", "choco entreprise", "Vélizy", new Date());
 				
 				offreDAO.ajouterOffre(nouvelleOffre);
 				System.out.println("Offre ajoutée avec succès");
@@ -24,7 +24,7 @@ public class TestOffresDAO {
 					System.out.println("Titre: " + offre.getTitre());
 					System.out.println("Description: "+ offre.getDescription());
 					System.out.println("Entreprise: " + offre.getEntreprise());
-					System.out.println("Lieu: " + offre.getEntreprise());
+					System.out.println("Lieu: " + offre.getLieu());
 					System.out.println("Date: " +offre.getDate_publication());
 				});
 				

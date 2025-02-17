@@ -15,9 +15,26 @@ public class OffresVue {
     }
 
     // Afficher toutes les offres
-    public void afficherOffres() {
+    public String afficherOffres() {
         List<Offres> offres = offresDAO.getAllOffres();
+        StringBuilder sb = new StringBuilder();
+
         if (offres.isEmpty()) {
+            sb.append("Aucune offre disponible.\n");
+        } else {
+            sb.append("\n--- Liste des Offres ---\n");
+            for (Offres offre : offres) {
+                sb.append("ID: ").append(offre.getId_offre()).append("\n")
+                  .append("Titre: ").append(offre.getTitre()).append("\n")
+                  .append("Description: ").append(offre.getDescription()).append("\n")
+                  .append("Entreprise: ").append(offre.getEntreprise()).append("\n")
+                  .append("Lieu: ").append(offre.getLieu()).append("\n")
+                  .append("Date: ").append(offre.getDate_publication()).append("\n")
+                  .append("------------------------\n");
+            }
+        }
+        return sb.toString();
+       /* if (offres.isEmpty()) {
             System.out.println("Aucune offre disponible.");
         } else {
             System.out.println("\n--- Liste des Offres ---");
@@ -26,10 +43,11 @@ public class OffresVue {
                 System.out.println("Titre: " + offre.getTitre());
                 System.out.println("Description: " + offre.getDescription());
                 System.out.println("Entreprise: " + offre.getEntreprise());
+                System.out.println("Lieu: " + offre.getLieu());
                 System.out.println("Date: " + offre.getDate_publication());
                 System.out.println("------------------------");
             }
-        }
+        }*/
     }
 
     // Ajouter une offre via l'entrée utilisateur
@@ -43,13 +61,16 @@ public class OffresVue {
 
 			System.out.print("Entreprise : ");
 			String entreprise = scanner.nextLine();
+			
+			System.out.print("Lieu : ");
+			String lieu = scanner.nextLine();
 
 			System.out.print("Date de publication (YYYY-MM-DD) : ");
 			String dateInput = scanner.nextLine();
 
 			try {
 			    java.util.Date datePublication = java.sql.Date.valueOf(dateInput);
-			    Offres nouvelleOffre = new Offres(0, titre, description, entreprise, datePublication);
+			    Offres nouvelleOffre = new Offres(0, titre, description, entreprise, lieu, datePublication);
 			    offresDAO.ajouterOffre(nouvelleOffre);
 			    System.out.println("Offre ajoutée avec succès !");
 			} catch (IllegalArgumentException e) {
@@ -59,7 +80,7 @@ public class OffresVue {
 		}
     }
  // Afficher un message
-    public void afficherMessage(String message) {
-        System.out.println(message);
+    public String afficherMessage(String message) {
+        return message;
     }
 }

@@ -1,10 +1,17 @@
 package fr.eseo.e4.poo.projet.infralogiciel.apply.view;
 
 import fr.eseo.e4.poo.projet.infralogiciel.apply.model.Utilisateurs;
+import fr.eseo.e4.poo.projet.infralogiciel.apply.model.dao.OffresDAO;
+import fr.eseo.e4.poo.projet.infralogiciel.apply.model.dao.UtilisateursDAO;
 import fr.eseo.e4.poo.projet.infralogiciel.apply.model.Type_utilisateur;
 import java.util.List;
 
 public class UtilisateurVue {
+	private final UtilisateursDAO utilisateursDAO;
+	
+	 public UtilisateurVue(UtilisateursDAO utilisateursDAO) {
+	        this.utilisateursDAO = utilisateursDAO;
+	    }
 
     // Méthode pour afficher un utilisateur
     public void afficherUtilisateur(Utilisateurs utilisateur) {

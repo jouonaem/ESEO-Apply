@@ -68,5 +68,10 @@ public class UtilisateursController {
 	        } catch (Exception e) {
 	            utilisateurVue.afficherMessage("Erreur lors de la mise à jour de l'utilisateur : " + e.getMessage());
 	        }
-	    } 
+	    }
+
+		public void ajouterUtilisateur(Utilisateurs utilisateur) {
+			// TODO Auto-generated method stub
+			
+		} 
 }

@@ -9,12 +9,12 @@ import fr.eseo.e4.poo.projet.infralogiciel.apply.view.CandidatureVue;
 
 public class CandidaturesController {
 	private CandidatureVue canditvue;
-	//private CandidaturesDAO candidaturedao;
+	private CandidaturesDAO candidaturedao;
 	
 	
 	public CandidaturesController(CandidatureVue canditvue) {
 		this.canditvue=canditvue;
-		//this.candidaturedao = new CandidaturesDAO();
+		this.candidaturedao = new CandidaturesDAO();
 	}
 	
 	// Crée et ajouter une candidature 
@@ -40,6 +40,22 @@ public class CandidaturesController {
 			
 			canditvue.afficherMessage("Erreur lors de l'ajour de l'offre : " + e.getMessage());
 		}
+		
+	}
+
+	public void afficherCandidatures() {
+		// TODO Auto-generated method stub
+		try {
+			var candidatures = candidaturedao.getAllCandidatures();
+			canditvue.afficherCandidatures();
+		}
+		catch(Exception e) {
+			canditvue.afficherMessage("Erreur lors de l'affichage des candidatures" + e.getMessage());
+		}
+	}
+
+	public void postuler(int idCandidat, int idOffre) {
+		// TODO Auto-generated method stub
 		
 	}
 

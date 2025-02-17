@@ -16,12 +16,11 @@ public class OffresController {
 
 	// Méthode pour ajouter une offre
 	
-	public void  ajouterOffres(String titre, String description, String entreprise, Date date_publication) {
+	public void  ajouterOffres(String titre, String description, String entreprise, String lieu, Date date_publication) {
 		try {
 			
-			// creer une offre
-			
-			Offres offre = new Offres(9, "CDI en communication", "verification et validation", "Rice and stew", new Date());
+			// Créer une offre avec les valeurs passées en paramètre
+	        Offres offre = new Offres(0, titre, description, entreprise, lieu, date_publication);
 			
 			// ajouter l'offre via le modele
 			
@@ -30,6 +29,9 @@ public class OffresController {
 			// Afficher le message que l'offre a été ajoutée avec succès via la vue
 			
 			offrevue.afficherMessage("Offre ajoutée avec succès !");
+			
+			 // Mettre à jour l'affichage des offres pour montrer la nouvelle offre ajoutée
+	        String nouvellesOffres = offrevue.afficherOffres();
 		} catch (Exception e) {
 			
 			// Afficher un message d'erreur via la vue
@@ -38,7 +40,7 @@ public class OffresController {
 		}
 	}
 	 // Méthode pour afficher toutes les offres
-    public void afficherOffres() {
+    public String afficherOffres() {
     	try {
     		
     		// récuperer les toutes les offres depuis le modèle
@@ -46,7 +48,7 @@ public class OffresController {
     		
     		// Demander à la vue d'afficher toutes les offres
     		
-    		offrevue.afficherOffres();
+    		 return offrevue.afficherOffres();
     		
     	}
     	
@@ -54,7 +56,7 @@ public class OffresController {
 		
 		// Afficher un message d'erreur via la vue
 		
-		offrevue.afficherMessage("Erreur lors de l'affichage des l'offre : " + e.getMessage());
+		return offrevue.afficherMessage("Erreur lors de l'affichage des l'offre : " + e.getMessage());
     	}
     	
     	
