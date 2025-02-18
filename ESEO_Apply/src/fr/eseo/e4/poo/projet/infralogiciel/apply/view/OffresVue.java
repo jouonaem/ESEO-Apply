@@ -34,20 +34,6 @@ public class OffresVue {
             }
         }
         return sb.toString();
-       /* if (offres.isEmpty()) {
-            System.out.println("Aucune offre disponible.");
-        } else {
-            System.out.println("\n--- Liste des Offres ---");
-            for (Offres offre : offres) {
-                System.out.println("ID: " + offre.getId_offre());
-                System.out.println("Titre: " + offre.getTitre());
-                System.out.println("Description: " + offre.getDescription());
-                System.out.println("Entreprise: " + offre.getEntreprise());
-                System.out.println("Lieu: " + offre.getLieu());
-                System.out.println("Date: " + offre.getDate_publication());
-                System.out.println("------------------------");
-            }
-        }*/
     }
 
     // Ajouter une offre via l'entrée utilisateur

@@ -43,14 +43,14 @@ public class CandidaturesController {
 		
 	}
 
-	public void afficherCandidatures() {
+	public String afficherCandidatures() {
 		// TODO Auto-generated method stub
 		try {
 			var candidatures = candidaturedao.getAllCandidatures();
-			canditvue.afficherCandidatures();
+			 return canditvue.afficherCandidatures();
 		}
 		catch(Exception e) {
-			canditvue.afficherMessage("Erreur lors de l'affichage des candidatures" + e.getMessage());
+			return canditvue.afficherMessage("Erreur lors de l'affichage des candidatures" + e.getMessage());
 		}
 	}
 

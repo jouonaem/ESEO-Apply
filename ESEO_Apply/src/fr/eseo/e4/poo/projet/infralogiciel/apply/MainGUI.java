@@ -148,8 +148,8 @@ public class MainGUI extends JFrame {
     }
 
     private void voirCandidatures() {
-        textArea.append("Liste des Candidatures :\n");
-        candidaturesController.afficherCandidatures();
+        String candidaturesText = candidaturesController.afficherCandidatures();
+        textArea.append(candidaturesText);
     }
 
     public static void MainGUI(String[] args) {

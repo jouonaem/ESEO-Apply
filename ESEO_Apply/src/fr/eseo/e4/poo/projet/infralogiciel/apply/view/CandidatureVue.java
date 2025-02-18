@@ -18,21 +18,24 @@ public class CandidatureVue {
     }
 	
 	 // Afficher toutes les candidatures
-    public void afficherCandidatures() {
+    public String afficherCandidatures() {
         List<Candidatures> candidatures = candidaturesDAO.getAllCandidatures();
+        StringBuilder sb = new StringBuilder();
         if (candidatures.isEmpty()) {
-            System.out.println("Aucune candidature disponible.");
+            sb.append("Aucune candidature disponible");
         } else {
-            System.out.println("\n--- Liste des Candidatures---");
+        	sb.append("\n--- Liste des Candidatures ---\n");
+
             for (Candidatures candidature : candidatures) {
-                System.out.println("ID_candidature: " + candidature.getId_candidature());
-                System.out.println("ID_utilisateur: " + candidature.getId_utilisateur());
-                System.out.println("ID_offre: " + candidature.getId_offre());
-                System.out.println("Date: " + candidature.getDate_candidature());
-                System.out.println("Statut: " + candidature.getStatut());
-                System.out.println("------------------------");
+                sb.append("ID_candidature: ").append(candidature.getId_candidature()).append("\n")
+                  .append("ID_utilisateur: ").append(candidature.getId_utilisateur()).append("\n")
+                  .append("ID_offre: ").append(candidature.getId_offre()).append("\n")
+                  .append("Date: ").append(candidature.getDate_candidature()).append("\n")
+                  .append("Statut: ").append(candidature.getStatut()).append("\n")
+                  .append("------------------------\n");
             }
         }
+        return sb.toString();
     }
     
     // Afficher une candidature spécifique
@@ -52,9 +55,9 @@ public class CandidatureVue {
     	}
     }
 
-	public void afficherMessage(String message) {
+	public String afficherMessage(String message) {
 		// TODO Auto-generated method stub
-		System.out.println(message);
+		return message;
 	}
 
 }
