@@ -6,11 +6,13 @@ public class Candidatures {
     private int id_candidature;
     private int id_utilisateur;
     private int id_offre;
-    private Date date_candidature; // Utilise le même nom partout
+    private Date date_candidature; 
     private StatutCandidature statut;
+    private String nom;
+    private String prenom;
 
-    public Candidatures(int id_candidature, int id_utilisateur, int id_offre, Date date_candidature, StatutCandidature statut) {
-        if (date_candidature == null) {      //Pourquoi la création d'un objet date? On aurait pu effectuer un test sur l'id de la candidature plutôt non?
+    public Candidatures(int id_candidature, int id_utilisateur, int id_offre, Date date_candidature, StatutCandidature statut, String nom, String prenom) {
+        if (date_candidature == null) {      
             throw new IllegalArgumentException("La date de candidature ne peut pas être null.");
         }
         this.id_candidature = id_candidature;
@@ -18,6 +20,8 @@ public class Candidatures {
         this.id_offre = id_offre;
         this.date_candidature = date_candidature;
         this.statut = statut;
+        this.nom = nom;
+        this.prenom = prenom;
     }
 
     public int getId_candidature() {
@@ -62,4 +66,20 @@ public class Candidatures {
     public void setStatut(StatutCandidature statut) {
         this.statut = statut;
     }
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
 }

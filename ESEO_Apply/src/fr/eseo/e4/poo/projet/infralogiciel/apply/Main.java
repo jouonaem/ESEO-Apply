@@ -70,7 +70,7 @@ package fr.eseo.e4.poo.projet.infralogiciel.apply;
 	                // Authentifier l'utilisateur
 	                UserAuthenticator authenticator = new UserAuthenticator();
 	                if (authenticator.authenticateUser(username, password)) {
-	                    JOptionPane.showMessageDialog(frame, "Connexion réussie !");
+	                    //JOptionPane.showMessageDialog(frame, "Connexion réussie !");
 	                    // Rediriger vers la page suivante
 	                     frame.setVisible(false); // Cache la fenêtre de connexion
 	                     new MainGUI().setVisible(true);

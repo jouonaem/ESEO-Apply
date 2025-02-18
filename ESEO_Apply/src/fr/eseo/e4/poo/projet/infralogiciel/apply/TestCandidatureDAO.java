@@ -14,8 +14,7 @@ public class TestCandidatureDAO {
 		try {
 			// Ajouter une nouvelle candidature
 			System.out.println("Ajout d'une nouvelle candidature...");
-			Candidatures nouvelleCandidature = new Candidatures(0,1,2,new Date(),StatutCandidature.ACCEPTEE// statut initial
-					);
+			Candidatures nouvelleCandidature = new Candidatures(0,1,2,new Date(),StatutCandidature.ACCEPTEE,"Lucky","Luke");
 				
 			dao.ajouterCandidature(nouvelleCandidature);
 			System.out.println("Candidature ajoutée avec succès !");
@@ -29,6 +28,8 @@ public class TestCandidatureDAO {
 				System.out.println("Offre: " + candidature.getId_offre());
 				System.out.println("Date: " + candidature.getDate_candidature());
 				System.out.println("Statut: " + candidature.getStatut());
+				System.out.println("Nom: " + candidature.getNom());
+				System.out.println("Prenom: " + candidature.getPrenom());
 				System.out.println("-------------------");
 			});
 			

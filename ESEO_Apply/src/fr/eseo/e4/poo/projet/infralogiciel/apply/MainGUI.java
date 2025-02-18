@@ -60,7 +60,7 @@ public class MainGUI extends JFrame {
         // Création des boutons
         JButton btnAjouterOffre = new JButton("Ajouter une offre");
         JButton btnVoirOffres = new JButton("Voir les offres");
-        JButton btnModifierOffre = new JButton("Modifier une offre");
+        JButton btnModifierOffre = new JButton("Gerer mes offres");
         JButton btnVoirUtilisateurs = new JButton("Voir les utilisateurs");
         JButton btnSupprimerOffre = new JButton("Supprimer une offre");
         JButton btnVoirCandidatures = new JButton("Voir les candidatures");
@@ -94,7 +94,7 @@ public class MainGUI extends JFrame {
 
         btnModifierOffre.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                modifierOffre();
+            	new OffreGUI(offresDAO);
             }
         });
 
@@ -133,10 +133,6 @@ public class MainGUI extends JFrame {
         textArea.append(offresText); // Ajouter au JTextArea
     }
 
-    private void modifierOffre() {
-    	new OffreGUI().setVisible(true);
-    	
-    }
 
     private void voirUtilisateurs() {
         textArea.append("Liste des Utilisateurs :\n");

@@ -32,6 +32,8 @@ public class CandidatureVue {
                   .append("ID_offre: ").append(candidature.getId_offre()).append("\n")
                   .append("Date: ").append(candidature.getDate_candidature()).append("\n")
                   .append("Statut: ").append(candidature.getStatut()).append("\n")
+                  .append("Nom: ").append(candidature.getNom()).append("\n")
+                  .append("Prenom: ").append(candidature.getPrenom()).append("\n")
                   .append("------------------------\n");
             }
         }

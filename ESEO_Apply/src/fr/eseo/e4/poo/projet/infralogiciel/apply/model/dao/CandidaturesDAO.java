@@ -13,7 +13,10 @@ public class CandidaturesDAO {
     // Récupérer toutes les candidatures
     public List<Candidatures> getAllCandidatures() {
         List<Candidatures> candidatures = new ArrayList<>();
-        String query = "SELECT * FROM Candidatures";
+       // String query = "SELECT * FROM Candidatures";
+        String query = "SELECT c.id_candidature, c.id_utilisateur, c.id_offre, c.date_candidature, c.statut, u.nom, u.prenom " +
+                		"FROM Candidatures c " +
+                		"JOIN Utilisateurs u ON c.id_utilisateur = u.id_utilisateur";
 
         try (Connection connection = DataBaseConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query);
@@ -25,7 +28,9 @@ public class CandidaturesDAO {
                     rs.getInt("id_utilisateur"),
                     rs.getInt("id_offre"),
                     rs.getDate("date_candidature"),
-                    StatutCandidature.valueOf(rs.getString("statut"))
+                    StatutCandidature.valueOf(rs.getString("statut")),
+                    rs.getString("nom"), 
+                    rs.getString("prenom")
                 );
                 candidatures.add(candidature);
             }
@@ -95,7 +100,12 @@ public class CandidaturesDAO {
 
     // Récupérer une candidature par ID
     public Candidatures getCandidatureById(int id_candidature) {
-        String query = "SELECT * FROM Candidatures WHERE id_candidature = ?";
+       // String query = "SELECT * FROM Candidatures WHERE id_candidature = ?";
+    	String query = "SELECT c.id_candidature, c.id_utilisateur, c.id_offre, c.date_candidature, c.statut, " +
+                		"u.nom, u.prenom " +
+                		"FROM Candidatures c " +
+                		"JOIN Utilisateurs u ON c.id_utilisateur = u.id_utilisateur " +
+                		"WHERE c.id_candidature = ?";
 
         try (Connection connection = DataBaseConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -109,7 +119,9 @@ public class CandidaturesDAO {
                     rs.getInt("id_utilisateur"),
                     rs.getInt("id_offre"),
                     rs.getDate("date_candidature"),
-                    StatutCandidature.valueOf(rs.getString("statut"))
+                    StatutCandidature.valueOf(rs.getString("statut")),
+                    rs.getString("nom"),
+                    rs.getString("prenom")
                 );
             }
         } catch (SQLException e) {

@@ -32,6 +32,7 @@ public class OffresController {
 			
 			 // Mettre à jour l'affichage des offres pour montrer la nouvelle offre ajoutée
 	        String nouvellesOffres = offrevue.afficherOffres();
+	        
 		} catch (Exception e) {
 			
 			// Afficher un message d'erreur via la vue

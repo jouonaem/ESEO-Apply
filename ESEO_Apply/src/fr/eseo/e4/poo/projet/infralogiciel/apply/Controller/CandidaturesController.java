@@ -17,13 +17,13 @@ public class CandidaturesController {
 		this.candidaturedao = new CandidaturesDAO();
 	}
 	
-	// Crée et ajouter une candidature 
+	// Créer et ajouter une candidature 
 	
-	// ici on va d'abord crée l'offre
+	// ici on va d'abord créer l'offre
 	
-	public void ajouterCandidature(int id_candidature, int id_utilisateur, int id_offre, Date date_candidature, StatutCandidature statut) {
+	public void ajouterCandidature(int id_candidature, int id_utilisateur, int id_offre, Date date_candidature, StatutCandidature statut, String nom, String prenom) {
 		try {
-			Candidatures candidature = new Candidatures (1,1,1,date_candidature,statut);
+			Candidatures candidature = new Candidatures (1,1,1,date_candidature,statut,nom,prenom);
 			
 			// ajouter la candidature créée
 			

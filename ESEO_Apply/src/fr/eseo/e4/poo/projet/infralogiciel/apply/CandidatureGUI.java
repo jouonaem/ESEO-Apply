@@ -1,27 +1,29 @@
 package fr.eseo.e4.poo.projet.infralogiciel.apply;
 
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import fr.eseo.e4.poo.projet.infralogiciel.apply.model.Candidatures;
 import fr.eseo.e4.poo.projet.infralogiciel.apply.model.Offres;
-import fr.eseo.e4.poo.projet.infralogiciel.apply.model.dao.OffresDAO;
+import fr.eseo.e4.poo.projet.infralogiciel.apply.model.dao.CandidaturesDAO;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-public class OffreGUI extends JFrame{
+public class CandidatureGUI extends JFrame{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTable table;
     private DefaultTableModel model;
-    private OffresDAO offresDAO;
+    private CandidaturesDAO candidaturesDAO;
 
-    public OffreGUI(OffresDAO offresDAO) {
-        this.offresDAO = offresDAO;
+    public CandidatureGUI(CandidaturesDAO candidaturesDAO) {
+        this.candidaturesDAO = candidaturesDAO;
         setTitle("Gestion des Offres");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,25 +58,25 @@ public class OffreGUI extends JFrame{
 
 	private void remplirTable() {
         model.setRowCount(0); // Effacer les anciennes données
-        List<Offres> offres = offresDAO.getAllOffres();
-        for (Offres offre : offres) {
-            model.addRow(new Object[]{offre.getId_offre(), offre.getTitre(), offre.getEntreprise(), offre.getLieu()});
+        List<Candidatures> candidatures = candidaturesDAO.getAllCandidatures();
+        for (Candidatures candidature : candidatures) {
+            model.addRow(new Object[]{candidature.getId_candidature(), candidature.getId_offre(), candidature.getStatut(),candidature.getDate_candidature(), candidature.getNom(), candidature.getPrenom()});
         }
     }
 
-    private void afficherOptions(int idOffre) {
-        String[] options = {"Modifier", "Supprimer", "Annuler"};
+    private void afficherOptions(int idCandidature) {
+        String[] options = {"Accepter", "Refuser", "Annuler"};
         int choix = JOptionPane.showOptionDialog(this, "Que voulez-vous faire ?", "Options",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
         if (choix == 0) {
-            modifierOffre(idOffre);
+           // modifierOffre(idOffre);
         } else if (choix == 1) {
-            supprimerOffre(idOffre);
+           // supprimerOffre(idOffre);
         }
     }
 
-    private void modifierOffre(int idOffre) {
+   /* private void modifierOffre(int idOffre) {
         String nouveauTitre = JOptionPane.showInputDialog(this, "Nouveau titre de l'offre :");
         String newdescription = JOptionPane.showInputDialog(this, "Description :");
         String newentreprise = JOptionPane.showInputDialog(this, "Entreprise :");
@@ -96,14 +98,14 @@ public class OffreGUI extends JFrame{
             } else {
                 JOptionPane.showMessageDialog(this, "Tous les champs doivent être remplis !");
             }
-    }
+    }*/
 
-    private void supprimerOffre(int idOffre) {
+    /*private void supprimerOffre(int idOffre) {
         int confirm = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment supprimer cette offre ?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION) {
-            offresDAO.supprimerOffre(idOffre);
+        	candidaturesDAO.supprimerOffre(idOffre);
             remplirTable(); // Rafraîchir l'affichage
             JOptionPane.showMessageDialog(this, "Offre supprimée !");
         }
-    }
+    }*/
 }
