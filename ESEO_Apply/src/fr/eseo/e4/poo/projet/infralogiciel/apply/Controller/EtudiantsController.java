@@ -11,7 +11,7 @@ import fr.eseo.e4.poo.projet.infralogiciel.apply.model.Type_utilisateur;
 public class EtudiantsController {
 EtudiantsVue etudvue = new EtudiantsVue();
 	
-	public void EtudiantsController(EtudiantsVue etudvue) {
+	public EtudiantsController(EtudiantsVue etudvue) {
 		this.etudvue = etudvue;
 	}
 	

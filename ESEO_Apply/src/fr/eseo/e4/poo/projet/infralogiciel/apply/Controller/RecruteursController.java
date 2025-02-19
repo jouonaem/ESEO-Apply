@@ -8,7 +8,7 @@ import fr.eseo.e4.poo.projet.infralogiciel.apply.model.Type_utilisateur;
 public class RecruteursController {
 RecruteursVue recrutvue = new RecruteursVue();
 	
-	public void RecruteursController(RecruteursVue recrutvue) {
+	public  RecruteursController(RecruteursVue recrutvue) {
 		this.recrutvue=recrutvue;
 	}
 	
