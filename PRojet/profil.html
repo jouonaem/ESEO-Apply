@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .profil-container { width: 50%; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 8px; }
+        .profil-header { display: flex; align-items: center; }
+        .profil-header img { border-radius: 50%; width: 50px; height: 50px; margin-right: 15px; }
+        .modifier-btn { background-color: #007bff; color: white; padding: 10px; border: none; cursor: pointer; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="profil-container">
+        <div class="profil-header">
+            <img src="imageSrc.png" alt="Avatar">
+            <h2>Nom</h2>
+        </div>
+        <p>📧 <span>email :</span></p>
+        <p>📞 <span>téléphone :</span></p>
+        <p>🎂 <span>Statut :</span></p>
+        
+        <button class="modifier-btn" onclick="window.location.href='/modifier'">Modifier</button>
+    </div>
+</body>
+</html>

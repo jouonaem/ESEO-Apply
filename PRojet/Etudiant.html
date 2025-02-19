@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>ESEO Apply</title>
+</head>
+<body>
+
+    <header>
+        <div class="menu-container">
+            <!-- Bouton principal -->
+            <button>
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                <span class="username">Etudiant</span>
+            </button>
+             <!-- Liste déroulante -->
+             <div class="dropdown-menu">
+                <a href="suivi-candidature.html" class="recap-button">Voir mes candidatures</a>
+            </div>
+    </header>
+
+    <a href="php/dashboard.php" class="back-link">← Retour</a>
+
+    <h1>Jobs</h1>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Rechercher par mots-clés...">
+        <button onclick="searchJobs()">Rechercher</button>
+    </div>
+
+    <div class="container">
+        
+        <!-- Carte d'offre d'emploi 1 -->
+        <a href="Offre1.html">
+            <div class="job-card">
+                <img src="Thales.png" alt="Job Image">
+                <div class="job-card-content">
+                    <p class="company-name">THALES</p>
+                    <p class="job-title">
+                        Data Engineer (F/H)
+                    </p>
+                    <p class="location">📍 Vélizy-Villacoublay</p>
+                    <p class="job-meta">Alternance · il y a 16 heures</p>
+                    <button class="toggle-application" data-job-id="1">consulter</button>
+                </div>
+            </div>
+        </a>
+
+        <!-- Carte d'offre d'emploi 2 -->
+         <a href="Offre2.html">
+            <div class="job-card">
+                <img src="Thales.png" alt="Job Image">
+                <div class="job-card-content">
+                    <p class="company-name">THALES</p>
+                    <p class="job-title">
+                        Ingénieur data Spark (F/H)
+                    </p>
+                    <p class="location">📍 Vélizy-Villacoublay</p>
+                    <p class="job-meta">Stage · il y a 16 heures</p>
+                    <button class="toggle-application" data-job-id="1">consulter</button>
+                </div>
+            </div>
+         </a>
+
+        <!-- Carte d'offre d'emploi 3 -->
+         <a href="Offre3.html">
+            <div class="job-card">
+                <img src="Thales.png" alt="Job Image">
+                <div class="job-card-content">
+                    <p class="company-name">THALES</p>
+                    <p class="job-title">
+                         Data Engineer (F/H)
+                    </p>
+                    <p class="location">📍 Vélizy-Villacoublay</p>
+                    <p class="job-meta">Stage · il y a 16 heures</p>
+                    <button class="toggle-application" data-job-id="1">consulter</button>
+                </div>
+            </div>
+         </a>
+        
+    </div> 
+
+    <script>
+        function searchJobs() {
+            var input, filter, cards, cardContainer, title, i;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            cardContainer = document.getElementsByClassName("container")[0];
+            cards = cardContainer.getElementsByClassName("job-card");
+            for (i = 0; i < cards.length; i++) {
+                title = cards[i].querySelector(".job-title");
+                if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    <footer>      
+        <p align="center">&copy; 2024 Mini Job Board</p>
+    </footer>
+
+    <script>
+       function loadOffres() {
+        fetch('php/recuperer_offres.php')
+        .then(response => response.json())
+        .then(offres => {
+            const container = document.querySelector('.container');
+            container.innerHTML = ''; // Vider l'ancien contenu
+
+            if (offres.length === 0) {
+                container.innerHTML = '<p>Aucune offre disponible pour le moment.</p>';
+                return;
+            }
+
+            offres.forEach(offre => {
+                const card = document.createElement('div');
+                card.classList.add('job-card');
+                card.innerHTML = `
+                    <h2>${offre.titre}</h2>
+                    <p><strong>Entreprise :</strong> ${offre.entreprise}</p>
+                    <p><strong>Lieu : </strong> ${offre.lieu}</p>
+                    <p><strong>Description :</strong> ${offre.description}</p>
+                    <p><strong>Date :</strong> ${offre.date_publcation}</p>
+                    <button onclick="postuler(${offre.id_offre})">Postuler</button>
+                `;
+                container.appendChild(card);
+            });
+        })
+        .catch(error => console.error('Erreur:', error));
+    }
+
+    function postuler(id_offre) {
+        alert("Postuler pour l'offre ID: " + id_offre);
+    }
+
+    window.onload = loadOffres;
+    </script>
+</body>
+</html>
