@@ -131,4 +131,40 @@ public class CandidaturesDAO {
 
         return null;
     }
+    
+    //Récupérer une candidature par offre
+    public List<Candidatures> getCandidaturesParOffre(int idOffre) {
+        List<Candidatures> candidatures = new ArrayList<>();
+        String query = "SELECT c.id_candidature, c.id_utilisateur, c.id_offre, c.date_candidature, c.statut, " +
+                       "u.nom, u.prenom " +
+                       "FROM Candidatures c " +
+                       "JOIN Utilisateurs u ON c.id_utilisateur = u.id_utilisateur " +
+                       "WHERE c.id_offre = ?";
+
+        try (Connection connection = DataBaseConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+
+            stmt.setInt(1, idOffre);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Candidatures candidature = new Candidatures(
+                    rs.getInt("id_candidature"),
+                    rs.getInt("id_utilisateur"),
+                    rs.getInt("id_offre"),
+                    rs.getDate("date_candidature"),
+                    StatutCandidature.valueOf(rs.getString("statut")),
+                    rs.getString("nom"),
+                    rs.getString("prenom")
+                );
+                candidatures.add(candidature);
+            }
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la récupération des candidatures : " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return candidatures;
+    }
+
 }

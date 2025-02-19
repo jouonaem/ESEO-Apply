@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import fr.eseo.e4.poo.projet.infralogiciel.apply.model.Offres;
+import fr.eseo.e4.poo.projet.infralogiciel.apply.model.dao.CandidaturesDAO;
 import fr.eseo.e4.poo.projet.infralogiciel.apply.model.dao.OffresDAO;
 
 import java.awt.*;
@@ -63,7 +64,7 @@ public class OffreGUI extends JFrame{
     }
 
     private void afficherOptions(int idOffre) {
-        String[] options = {"Modifier", "Supprimer", "Annuler"};
+        String[] options = {"Modifier", "Supprimer", "Candidatures", "Annuler"};
         int choix = JOptionPane.showOptionDialog(this, "Que voulez-vous faire ?", "Options",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
@@ -71,6 +72,14 @@ public class OffreGUI extends JFrame{
             modifierOffre(idOffre);
         } else if (choix == 1) {
             supprimerOffre(idOffre);
+        } else if (choix == 2) {
+        	 // Récupérer le titre de l'offre avant d'afficher les candidatures
+            String titreOffre = offresDAO.getTitreOffreById(idOffre);
+            if (titreOffre != null) {
+                afficherCandidatures(idOffre, titreOffre);
+            } else {
+                JOptionPane.showMessageDialog(this, "Erreur : Impossible de récupérer le titre de l'offre.", "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
@@ -106,4 +115,9 @@ public class OffreGUI extends JFrame{
             JOptionPane.showMessageDialog(this, "Offre supprimée !");
         }
     }
+    
+    private void afficherCandidatures(int idOffre, String titreOffre) {
+        new CandidatureGUI(new CandidaturesDAO(), idOffre, titreOffre);
+    }
+
 }

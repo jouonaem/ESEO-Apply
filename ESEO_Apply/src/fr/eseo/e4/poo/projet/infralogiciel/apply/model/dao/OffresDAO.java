@@ -104,4 +104,27 @@ public class OffresDAO {
         }
         return null;
     }
+    
+    //Titre d'une offre par son ID
+    public String getTitreOffreById(int idOffre) {
+        String titre = null;
+        String query = "SELECT titre FROM Offres WHERE id_offre = ?";
+
+        try (Connection connection = DataBaseConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+
+            stmt.setInt(1, idOffre);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                titre = rs.getString("titre");
+            }
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la récupération du titre de l'offre : " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return titre;
+    }
+
 }

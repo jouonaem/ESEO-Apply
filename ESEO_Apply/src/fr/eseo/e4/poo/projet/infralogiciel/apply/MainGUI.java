@@ -60,7 +60,7 @@ public class MainGUI extends JFrame {
         // Création des boutons
         JButton btnAjouterOffre = new JButton("Ajouter une offre");
         JButton btnVoirOffres = new JButton("Voir les offres");
-        JButton btnModifierOffre = new JButton("Gerer mes offres");
+        JButton btnGererOffres = new JButton("Gerer mes offres");
         JButton btnVoirUtilisateurs = new JButton("Voir les utilisateurs");
         JButton btnSupprimerOffre = new JButton("Supprimer une offre");
         JButton btnVoirCandidatures = new JButton("Voir les candidatures");
@@ -70,7 +70,7 @@ public class MainGUI extends JFrame {
         panel.setLayout(new GridLayout(3, 2, 10, 10));
         panel.add(btnAjouterOffre);
         panel.add(btnVoirOffres);
-        panel.add(btnModifierOffre);
+        panel.add(btnGererOffres);
         panel.add(btnVoirUtilisateurs);
         panel.add(btnSupprimerOffre);
         panel.add(btnVoirCandidatures);
@@ -92,7 +92,7 @@ public class MainGUI extends JFrame {
             }
         });
 
-        btnModifierOffre.addActionListener(new ActionListener() {
+        btnGererOffres.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	new OffreGUI(offresDAO);
             }
@@ -112,7 +112,8 @@ public class MainGUI extends JFrame {
 
         btnVoirCandidatures.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                voirCandidatures();
+				voirCandidatures();
+            	//new CandidatureGUI(candidaturesDAO,idOffre,titreOffre);
             }
         });
     }
